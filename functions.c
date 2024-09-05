@@ -55,6 +55,8 @@ void ModifyContact(Contact_t contacts[], int count, char nom[]) {
     scanf("%s", contacts[i].phone);
 }
 
-void deleteContact(Contact_t contacts[], char nom[]) {
-    
+void deleteContact(Contact_t contacts[], int count, char nom[]) {
+    int i;
+
+    i = searchAux(contacts, count, nom);
 }
