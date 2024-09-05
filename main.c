@@ -12,7 +12,7 @@ int main() {
         sizeTable = sizeof(contacts) / sizeof(Contact_t);
         switch(choix) {
             case 0:
-                printf("Exit...");
+                printf("Exit...\n");
                 exit(0);
             case 1:
                 addContact(contacts, sizeTable, count);
