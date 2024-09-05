@@ -16,11 +16,12 @@ typedef struct contact {
 // Auxillary
 void Welcome();
 int searchAux(Contact_t contacts[], int count, char nom[]);
+void clearString(char *str);
 
 // Contact Operation
 void addContact(Contact_t contacts[], int size, int count);
 void displayContact(Contact_t contacts[], int count);
-/*int deleteContact(Contact_t contacts[], char nom[]);*/
+void deleteContact(Contact_t contacts[], int count, char nom[]);
 void ModifyContact(Contact_t contacts[], int count, char nom[]);
 void searchContact(Contact_t contacts[], int count, char word[]);
 

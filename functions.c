@@ -2,7 +2,6 @@
 
 void addContact(Contact_t contacts[], int size, int count) {
     if (count >= size) {
-        printf(" size: %d");
         printf("Tableux est Plein!\n");
         return;
     }
@@ -23,7 +22,7 @@ void displayContact(Contact_t contacts[], int count) {
 
     for(i = 0; i < count; i++) {
         printf("\n------------------------\n");
-        printf("Name is: %s  Email is: %s  phone: %sn", contacts[i].nom,
+        printf("Name is: %s  Email is: %s  phone: %s", contacts[i].nom,
                                                         contacts[i].email,
                                                         contacts[i].phone);
     }
@@ -56,7 +55,18 @@ void ModifyContact(Contact_t contacts[], int count, char nom[]) {
 }
 
 void deleteContact(Contact_t contacts[], int count, char nom[]) {
-    int i;
+    int status, i;
 
-    i = searchAux(contacts, count, nom);
+    status = searchAux(contacts, count, nom);
+    if(status < 0) {
+        printf("No Contact Found to Delete\n");
+        return;
+    }
+    for(i = 0; i < count; i++) {
+        if(strcmp(contacts[i].nom, nom) == 0) {
+            strcpy(contacts[i].nom, contacts[i + 1].nom);
+            strcpy(contacts[i].email, contacts[i + 1].email);
+            strcpy(contacts[i].phone, contacts[i + 1].phone);
+        }
+    }
 }

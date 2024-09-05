@@ -5,7 +5,7 @@ int main() {
     Contact_t contacts[ENTRY];
     int sizeTable = 0, count = 0;
     while(1) {
-        char nom[50], word[50];
+        char word[50];
         Welcome();
         printf("Enter un Choix: ");
         scanf("%d", &choix);
@@ -23,18 +23,25 @@ int main() {
                 break;
             case 3:
                 printf("Entree le nom de Contact a modifie: ");
-                scanf("%s", nom);
-                ModifyContact(contacts, count, nom);
+                scanf("%s", word);
+                ModifyContact(contacts, count, word);
+                clearString(word);
                 break;
             case 4:
                 printf("Entre nom to search: ");
                 scanf("%s", word);
                 searchContact(contacts, count, word);
+                clearString(word);
                 break;
             case 5:
+                printf("C'est le nom de Contacts? je veux supprimer: ");
+                scanf("%s", word);
+                deleteContact(contacts, count, word);
+                count--;
+                clearString(word);
                 break;
             default:
-                printf("Please Enter a Correct Choice");
+                printf("Please Enter a Correct Choice\n");
                 exit(0);
         }
     }

@@ -21,3 +21,7 @@ int searchAux(Contact_t contacts[], int count, char nom[]) {
     }
     return (-1);
 }
+
+void clearString(char *str) {
+    str[0] = '\0';
+}
